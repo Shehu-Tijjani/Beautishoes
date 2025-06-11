@@ -28,7 +28,7 @@ nav.append(cloneNavlists);
 const HamBurgerFunction = function () {
   let hamClickCondition = true;
 
-  //  ham animation => animate ✔️☑️☑️
+  //  ham animation => animate
   let anim = true;
 
   // functions
@@ -46,7 +46,7 @@ const HamBurgerFunction = function () {
       // remove hamburger icon
       this.querySelector(".hamburger-stripe").classList.remove("ham-strp");
 
-      // ham animation => animate ✔️☑️☑️
+      // ham animation => animate
       anim = true;
       dismissHamburgerMenu();
     }
@@ -62,14 +62,14 @@ const HamBurgerFunction = function () {
     if (anim) hamStrp.classList.add("ham-hover-anim");
   };
 
-  // HAM FUNCTIONALITY 🎯🎯🎯🎯🎯
+  // HAM FUNCTIONALITY
   const hamFunc = function (e) {
     // display navigation/hamburger menu
     hamburgerMenu.style.clipPath = "circle(200%)";
     cloneNavlists.style.transform =
       "translateX(-50%) translateY(-50%) scale(1)";
 
-    // ham animation => dont animate ❌❌❌
+    // ham animation => dont animate
     anim = false;
     hamStrp.classList.remove("ham-hover-anim");
 
@@ -88,11 +88,8 @@ const HamBurgerFunction = function () {
   hamburger.addEventListener("click", hamFunc);
 
   cloneNavlists.addEventListener("click", function (e) {
-    // 🌸🌸🌸🌸🌸🌸🌸
-    // e.preventDefault();
     const ListclickTarget = e.target;
-    // console.log(ListclickTarget);
-    // ✈️✈️✈️✈️✈️✈️✈️✈️
+
     navLinks.forEach((navlink) => {
       if (ListclickTarget.classList.contains("nav__links")) {
         endHamburgerProcess.bind(hamburger)();
@@ -133,7 +130,7 @@ const section6Functionality = function () {
 
   // COUNTERS
   let figurecount = 0;
-  let transform = -27.6667;
+  let translatePosition = 27.6667;
 
   // DEFAULTS
   figure[0].classList.add("section--6__main");
@@ -172,7 +169,6 @@ const section6Functionality = function () {
         icon.style.height = "3rem";
       });
   };
-  // section 6 figure media icons resets end
 
   //  MEMBER FIGURE 1 DEFAULT HOVER & NOT HOVERED EFFECT
   figure[0].addEventListener("mouseover", figureHovered.bind(figurecount));
@@ -253,18 +249,16 @@ const section6Functionality = function () {
     // --------------------------------------------------//
 
     figure.forEach((fig, i) => {
-      figure[i].style.transform = `translateX(-${transform}rem)`;
+      figure[i].style.transform = `translateX(${translatePosition}rem)`;
 
       // figurecount or review count
       if (figurecount === 0) {
         // figure 2 matrix adjustment
-        fig2.style.transform = `translateX(${
-          -1 * transform
-        }rem)  matrix3d(1, 0, 0, 0.0006, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1)
+        fig2.style.transform = `translateX(${translatePosition}rem)  matrix3d(1, 0, 0, 0.0006, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1)
           scale(0.8)
           `;
 
-        figure[i].style.transform = `translateX(${-1 * transform}rem)`;
+        figure[i].style.transform = `translateX(${translatePosition}rem)`;
       }
 
       // adding the main FIGURE STYLES
@@ -286,23 +280,26 @@ const section6Functionality = function () {
       if (i < this) {
         figure[
           i
-        ].style.transform = `translateX(-${transform}rem) matrix3d(1, 0, 0, -0.0006, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1) scale(0.8)`;
+        ].style.transform = `translateX(${translatePosition}rem) matrix3d(1, 0, 0, -0.0006, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1) scale(0.8)`;
       }
 
       if (i > this) {
         figure[
           i
-        ].style.transform = `translateX(-${transform}rem) matrix3d(1, 0, 0, 0.0006, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1)
+        ].style.transform = `translateX(${translatePosition}rem) matrix3d(1, 0, 0, 0.0006, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1)
           scale(0.8)`;
       }
     });
   };
 
+  // START - TRANSFORM
+
   // RIGHT ARROW
   arrRight.addEventListener("click", function () {
     // the FIGURE MOVEMENT
     if (figurecount !== figure.length - 1) {
-      transform = transform + 27.6667;
+      // translatePosition = -transform + 27.6667;
+      translatePosition = translatePosition - 27.6667;
       figurecount++;
     }
 
@@ -313,12 +310,15 @@ const section6Functionality = function () {
   arrLeft.addEventListener("click", function () {
     // the FIGURE MOVEMENT
     if (figurecount > 0) {
-      transform = transform - 27.6667;
+      // translatePosition = -transform + 27.6667;
+      translatePosition = translatePosition + 27.6667;
       figurecount--;
     }
 
     sliderControl.bind(figurecount)();
   });
+
+  // END - TRANSFORM
 
   // DEFAULT FIGURE HOVER - MEDIA icons DISPLAY
   mediaQuery(0);
@@ -337,82 +337,59 @@ const section6Functionality = function () {
       dot.classList.add("dot--active");
 
       const dataset = dot.getAttribute("data-members");
-      console.log(dataset);
 
-      transform = 27.6667 * dataset - 27.6667;
+      translatePosition = -(27.6667 * dataset - 27.6667);
+
       figurecount = dataset;
 
       if (figurecount == 0) {
-        figure.forEach(
-          (fig) => (fig.style.transform = `translateX(${-1 * transform}rem)`)
-        );
+        // figure.forEach(
+        //   (fig) => (fig.style.transform = `translateX(${translatePosition}rem)`)
+        // );
 
         // figure 2 matrix adjustment
-        fig2.style.transform = `translateX(${
-          -1 * transform
-        }rem)  matrix3d(1, 0, 0, 0.0006, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1)
+        fig2.style.transform = `translateX(${translatePosition}rem)  matrix3d(1, 0, 0, 0.0006, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1)
           scale(0.8)
           `;
       }
 
+      // dot sizes
       mediaQuery(figurecount);
 
       sliderControl.bind(figurecount)();
     }
   });
 };
+
 section6Functionality();
 
 // ///////////////////////////////////////////////////////////////////////////////
 
-const section7functionality = function () {
+const section7functionality = (function () {
   const customerBox = document.querySelectorAll(".customer__boxes");
 
-  const customerContainer = document.querySelector(".reviews__container");
+  const customerBoxContainer = document.querySelector(
+    ".section--7__customers-field"
+  );
 
   let customerSlide;
-  let lengthTracker = 0;
 
-  customerContainer.scrollIntoView();
-  const condition = true;
+  customerBoxContainer.scrollIntoView();
 
   const customerSlideFunc = function () {
-    customerContainer.scrollBy({
+    customerBoxContainer.scrollBy({
       left: `${customerSlide}`,
       behavior: "smooth",
     });
-    if (lengthTracker === customerBox.length) {
-      setTimeout(() => {
-        customerContainer.scrollBy({ left: 200, behavior: "smooth" });
-        customerBox.forEach((cb) => {
-          cb.style.transform = "scale(0.9) translateX(-8rem)";
-        });
-        console.log("yaaaaaaaaaaaayyyyyyyyyyyyyyyyyyyyyyy!!!!!!!!!!!");
-      }, 1000);
-    }
   };
 
   customerArrLeft.addEventListener("click", function () {
-    customerSlide = -540;
-    if (lengthTracker > 0) {
-      lengthTracker--;
-      console.log(lengthTracker);
-    }
-
+    customerSlide = -200;
     customerSlideFunc();
   });
-
-  let count = 0;
 
   customerArrRight.addEventListener("click", function () {
-    customerSlide = 540;
-
-    if (lengthTracker < customerBox.length / 3) {
-      lengthTracker++;
-      console.log(lengthTracker);
-      count = count + customerSlide;
-      console.log(count);
-    }
+    customerSlide = 200;
     customerSlideFunc();
   });
-};
+})();
