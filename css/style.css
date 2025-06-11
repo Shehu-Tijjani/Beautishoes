@@ -389,69 +389,10 @@ console.log(cloneNavlist); */
 }
 
 .hero__media-display {
-  bottom: 2rem;
-  height: 4rem;
-  justify-self: flex-end;
-  display: flex;
-  align-items: center;
-  margin-top: 2rem;
   display: none;
 }
 
-.hero__media-display::before,
-.hero__media-display::after {
-  position: absolute;
-  left: -35%;
-  top: 50%;
-  transform: translateY(-50%);
-  content: "";
-  width: 6rem;
-  height: 0.1rem;
-  background-color: var(--color-white);
-}
-
-.hero__media-display::before {
-  left: 106%;
-}
-
-.media-display__list {
-  display: inline-block;
-  padding: 0 1rem;
-  position: relative;
-}
-
-.media-display__iconlinks {
-  text-decoration: none;
-  height: 4rem;
-}
-
-.hero__media__svg {
-  fill: var(--color-secondary);
-  width: 3rem;
-  height: 3rem;
-  transition: all 0.5s ease;
-}
-
-.hero__media__svg.fb {
-  width: 3.6rem;
-  height: 3.6rem;
-}
-
-.hero__media__svg:hover {
-  fill: #1cbebe;
-  fill: rgba(255, 255, 255, 0.603);
-}
-
-.deco-imgs--1 {
-  left: 95%;
-}
-
 .hero__deco-svg {
-  height: 75vh;
-  width: 0.5rem;
-  transform: rotate(0deg) translateY(-50%);
-  fill: #fff;
-  stroke-opacity: 0.7;
   display: none;
 }
 
@@ -464,26 +405,6 @@ console.log(cloneNavlist); */
 .hero__bg-shoe {
   height: 100%;
   width: 100%;
-}
-
-/* #885446 medium at 800 #885446 */
-@media screen and (max-width: 50em) {
-  .hero {
-    flex-direction: column;
-    gap: 30px;
-    text-align: center;
-    align-items: center;
-    justify-content: center;
-    width: 100%;
-  }
-
-  .hero__img {
-    margin-left: 55px;
-  }
-
-  .hero__sm--text {
-    margin: 2rem auto 3rem;
-  }
 }
 
 .hero__bg:before {
@@ -500,25 +421,49 @@ console.log(cloneNavlist); */
   z-index: -9;
 }
 
+/* #885446 medium at 800 #885446 */
+@media screen and (max-width: 50em) {
+  .hero {
+    flex-direction: column;
+    gap: 30px;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+  }
+
+  .hero__lg--text {
+    /* margin-top: 5rem; */
+  }
+
+  .hero__img {
+    margin-left: 55px;
+  }
+
+  .hero__bg-shoe {
+    height: 80%;
+    width: 80%;
+  }
+
+  .hero__sm--text {
+    margin: 2rem auto 3rem;
+  }
+
+  .hero__btn {
+    margin-bottom: 3rem;
+  }
+
+  .hero__bg:before {
+    right: 18rem;
+    width: 50%;
+    height: 30rem;
+  }
+}
+
 /* #8deba9 duo at 700 x 400  #8deba9 */
 @media screen and (max-width: 43.75em) and (min-height: 25em) {
   .hero__lg--text {
     font-size: max(10vw, 30px);
-  }
-
-  .hero__bg {
-    /* height: 25rem;
-    width: 36rem;
-    position: relative; */
-  }
-
-  .hero__bg-shoe {
-    height: 100%;
-    width: 100%;
-  }
-
-  .hero__bg:before {
-    /* right: 9rem; */
   }
 
   .hero__sm--text {
@@ -604,7 +549,6 @@ console.log(cloneNavlist); */
   flex: 1;
   display: flex;
   justify-content: flex-end;
-  /* background: #00000065; */
 }
 
 .about-img__background {
@@ -652,6 +596,17 @@ console.log(cloneNavlist); */
   color: var(--color-black--1);
 }
 
+@media screen and (max-width: 39em) {
+  .section--2__right {
+    flex-basis: 120px;
+    justify-content: flex-start;
+  }
+
+  .about-img__background {
+    width: max(50vw, 25rem);
+  }
+}
+
 /**********************************************************************************************/
 /****************************************** ABOUT END ***********************************/
 /**********************************************************************************************/
@@ -664,7 +619,7 @@ console.log(cloneNavlist); */
   position: relative;
   height: auto;
   max-width: var(--big-container-width);
-  padding: var(--section-padding) 4rem;
+  padding: 4rem var(--section-padding) 0;
   margin: auto;
   display: flex;
   gap: 10px;
@@ -679,7 +634,7 @@ console.log(cloneNavlist); */
 }
 
 .section--3__decoAvatar {
-  width: max(35vw, 350px);
+  width: max(35vw, 300px);
   margin-top: -50px;
   margin-left: -40px;
 }
@@ -694,13 +649,9 @@ console.log(cloneNavlist); */
   flex-basis: 200px;
 }
 
-.section--3__text {
-  margin-bottom: 10rem;
-}
-/* #88ffdd smaller at 400 #88ffdd */
-@media screen and (max-width: 25em) {
-}
-
+/* .section--3__text {
+  margin-top: -20px;
+} */
 /**********************************************************************************************/
 /****************************************** ASSURANCE END ***********************************/
 /**********************************************************************************************/
