@@ -490,6 +490,7 @@ console.log(cloneNavlist); */
   padding: 3rem 1.5rem;
   border-radius: 1rem;
   display: flex;
+  gap: max(10vw, .5rem);
   flex-wrap: wrap;
   align-items: flex-end;
   justify-content: center;
@@ -503,7 +504,6 @@ console.log(cloneNavlist); */
   flex-basis: auto;
   flex-direction: column;
   text-align: center;
-  margin: 1.8rem;
 }
 
 .soft-archives__desc {
